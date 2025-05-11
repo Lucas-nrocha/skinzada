@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="">
+  <title>Registro</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <section class="navbar">
+        <a href="/index.html">
+          <img class="logo" src="/assets/home/logo.svg" alt="Logo Air Guard" />
+        </a>
+        <ul>
+          <li><a href="../sobre-nos/sobre_nos.html">Sobre nós</a></li>
+          <li><a href="../calculadora/calculadora.html">Orçamento</a></li>
+          <li><a href="login.html">Entrar</a></li>
+        </ul>
+      </section>
+    </header>
+    <img  class="imgBack" src="../../assets/cadastro/fundoRegistro.jpeg" alt="" id="fundoRegistro">
+    <form class="formRegistro" id="registerForm">
+      <h4>Seja bem-vindo a AirGuard</h4>
+      <h1>Crie a sua conta</h1>
+      <div class="input-wrapper">
+        <input type="email" id="iptEmail" placeholder="Exemplo@Email.com " required />
+        <label for="email" class="floating">E-mail</label>
+        <span class="icon">📧</span>
+      </div>
+      <div class="input-wrapper" id="Senha">
+        <input type="password" id="iptSenha" placeholder="***********" required />
+        <label for="senha" class="floating">Senha</label>
+        <button onclick="view()" class="icon">👁️</button>
+      </div>
+      <div class="input-wrapper">
+        <input type="text" id="iptEmpresa" placeholder="Ex. Google" required>
+        <label for="nomeEmpresa" class="floating">Nome da Empresa</label>
+        <span class="error" id="nomeEmpresaError"></span>
+      </div>
+      <div class="input-wrapper">
+        <input type="number" id="iptCnpj" placeholder="CNPJ" required>
+        <label for="cnpjempresa" class="floating">Nome da Empresa</label>
+        <span class="error" id="nomeEmpresaError"></span>
+      </div>
+      <button type="button" class="btn-registro" onclick="registrar()">Registrar</button>
+      <div id="resultado"></div>
+    </form>
+  </div>
+</body>
+
+</html>
+
+<script>
+  function view() {
+    iptSenha.innerHTML = `<input type="text" id="senha" placeholder="456123" required />
+        <label for="senha" class="floating">Senha</label>
+        <button onclick="viewoff()" class="icon">👁️</button>`
+  }
+  function viewoff() {
+    iptSenha.innerHTML = `
+    <input type="password" id="senha" placeholder="***********" required />
+        <label for="senha" class="floating">Senha</label>
+        <button onclick="view()" class="icon">👁️</button>`
+  }
+
+  function registrar() {
+    // Coleta as informações do formulário
+    var email = iptEmail.value;
+    var senha = iptSenha.value;
+    var empresa = iptEmpresa.value;
+    var cnpj = iptCnpj.value;
+
+    resultado.innerHTML = '';
+
+    // Verifica se o e-mail está vazio
+    let isValid = true;
+
+    // Verifica se o e-mail contém "@"
+    if (!email.includes('@')) {
+      resultado.innerHTML += '<br>O e-mail deve conter um "@"<br>';
+      resultado.style.color = 'red';
+      isValid = false;
+    }
+
+    // Verifica se a senha possui no mínimo 6 caracteres
+    if (senha.length < 6) {
+      resultado.innerHTML += 'A senha deve ter pelo menos 6 caracteres.<br>';
+      isValid = false;
+    }
+
+    // Verifica se o nome da empresa foi preenchido
+    if (empresa == '') {
+      resultado.innerHTML += 'O nome da empresa não pode estar vazio.';
+      isValid = false;
+    }
+
+    // Verifica se o cnpj foi preenchido corretamente.
+    if (cnpj.length < 14) {
+      resultado.innerHTML += 'O CNPJ deve conter 14 caracteres.<br>';
+      isValid = false;
+    }
+
+    // Se todas as validações forem aprovadas, exibe alerta de sucesso e redireciona para a página de login
+    if (isValid) {
+      alert('Registro realizado com sucesso!');
+      window.location.href = 'login.html';
+    }
+  }
+</script>

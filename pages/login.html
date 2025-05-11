@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+        <div class="navbar">
+            <div class="navbar-padrao"></div>
+            <img src="/assets/LogoSkinzada.png" alt="Logo" style="height: 120px; margin-right: 30px; border-radius: 50%;">
+            <a href="../index.html">Home</a>
+            <a href="/pages/login.html">Login e registro</a>
+            <a href="#sobre-nos">Sobre nós</a>
+        
+        <div class="navbar-skins">
+            <div class="dropdown">
+                Rifles
+                <div class="dropdown-content">
+                    <a href="#ak47">AK-47</a>
+                    <a href="#m4a4">M4A4</a>
+                    <a href="#m4a1s">M4A1-S</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                Pistolas    
+                <div class="dropdown-content">
+                    <a href="#usp">USP</a>
+                    <a href="#glock">GLOCK</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                Facas
+                <div class="dropdown-content">
+                    <a href="#karambit">Karambit</a>
+                    <a href="#butterfly">Butterfly</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img class="imgBack" src="/assets/cadastro/fundoLogin.jpeg" alt="">
+    <form>
+      <h4>Que bom que você voltou,</h4>
+      <h1>Faça login</h1>
+
+      <div class="input-wrapper">
+        <input type="email" id="ipt_email" placeholder="exemplo@emal.com" required />
+        <label for="email" class="floating">E-mail</label>
+        <span class="icon">📧</span>
+      </div>
+
+      <div class="input-wrapper">
+        <input type="password" id="ipt_senha" placeholder="************" required />
+        <label for="password" class="floating">Senha</label>
+        <span class="icon">👁️</span>
+      </div>
+      <a href="registro.html" class="btn">Cadastre-se</a>
+      <button type="button" class="btn-login" onclick="login()">Entrar</button>
+    </form>
+  </div>
+</body>
+
+</html>
+<script>
+  // Criação da variável tentativas modular
+  let tentativas = 0;
+
+  function login() {
+
+    // Coleta as informações do formulário
+    var email = ipt_email.value;
+    var senha = ipt_senha.value;
+
+    // Criação de variaveis fixas
+    const emailteste = 'sptech@gmail.com';
+    const senhateste = '123';
+
+    // Verifica se o email e a senha estão corretos
+    if (email === emailteste && senha === senhateste) {
+      // Caso estejam corretos, exibe alerta e redireciona para outra página
+      alert('Login realizado com sucesso!');
+      window.location.href = '/pages/dashboard/dashboard.html';
+    } else {
+      // Caso estejam errados, incrementa o número de tentativas
+      tentativas++;
+      // Se o número de tentativas for igual ou maior que 3, "bloqueia o acesso".
+      if (tentativas >= 3) {
+        alert('Você excedeu o número máximo de tentativas. Tente novamente mais tarde.');
+      } else {
+        // Senão, informa o número atual de tentativas
+        alert(`Email ou senha inválidos. Tentativa ${tentativas} de 3.`);
+      }
+    }
+  }
+</script>
