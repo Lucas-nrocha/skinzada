@@ -33,13 +33,13 @@ body {
     color: #f0a500;
 }
 
-.navbar-skins {
+.armas {
     display: flex;
     align-items: center;
     margin-left: auto;
 }
 
-.navbar-skins .dropdown {
+.armas .dropdown {
     position: relative;
     margin-left: 15px;
     cursor: pointer;
@@ -47,11 +47,11 @@ body {
     font-weight: bold;
 }
 
-.navbar-skins .dropdown:hover {
+.armas .dropdown:hover {
     color: #f0a500;
 }
 
-.navbar-skins .dropdown-content {
+.armas .dropdown-content {
     display: none;
     position: absolute;
     background-color: #444;
@@ -61,11 +61,11 @@ body {
     border-radius: 5px;
 }
 
-.navbar-skins .dropdown:hover .dropdown-content {
+.armas .dropdown:hover .dropdown-content {
     display: block;
 }
 
-.navbar-skins .dropdown-content a {
+.armas .dropdown-content a {
     color: white;
     padding: 10px 15px;
     text-decoration: none;
@@ -73,7 +73,7 @@ body {
     font-size: 0.9rem;
 }
 
-.navbar-skins .dropdown-content a:hover {
+.armas .dropdown-content a:hover {
     background-color: #555;
 }
 
