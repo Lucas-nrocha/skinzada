@@ -68,6 +68,19 @@ header{
     font-size: 20px;
 }
 
+.conteudo li{
+    color: white;
+    transition: 0.2s ease-in;
+
+}
+
+.conteudo li:hover{
+     color: #f0a500;
+}
+
+.conteudo a{
+  text-decoration: none;
+}
 
 nav{
     position: relative;
