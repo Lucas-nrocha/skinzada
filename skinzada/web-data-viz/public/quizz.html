@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz CS2</title>
-    <link rel="stylesheet" href="exemplo_de_quiz/quiz.css">
+    <link rel="stylesheet" href="styles/quiz.css">
 </head>
+
 <body onload="onloadEsconder()">
     <!--header inicio-->
     <div class="container">
-          <a href="index.html">
+        <a href="index.html">
             <img src="assets/icon/logo.png" alt="Logo da Skinzada">
-          </a>
-      <header>
+        </a>
+        <header>
             <div class="conteudo">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li>Quizz</li>
                     <li>Sobre</li>
                     <li><a href="cadastro.html">Registro</a></li>
                 </ul>
@@ -26,95 +26,96 @@
             </nav>
         </header>
 
-    <section class="quizz-section">
-      <!--header fim-->
-        <div id="pontuacaoEJogo">
-        <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+        <section class="quizz-section">
+            <!--header fim-->
+            <div id="pontuacaoEJogo">
+                <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
 
-        <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
-            <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
-                <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
-            </div>
-            <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-                <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
-                    <span id="spanPontuacaoFinal">***</span>
-                </span>
-                <span id="msgFinal" class="width-fit-content">***</span>
-            </div>
-        </div>
+                <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+                    <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+                        <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
+                        <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+                    </div>
+                    <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+                        <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                            <span id="spanPontuacaoFinal">***</span>
+                        </span>
+                        <span id="msgFinal" class="width-fit-content">***</span>
+                    </div>
+                </div>
 
-        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
-            <div id="infoQuestao" class="padding-8">
-                <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
-                    questões.</span>
-            </div>
+                <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+                    <div id="infoQuestao" class="padding-8">
+                        <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span
+                                id="qtdQuestoes"></span>
+                            questões.</span>
+                    </div>
 
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
-                <span id="spanQuestaoExibida" class="text-bold"></span>
-            </div>
+                    <div id="perguntaDaQuestaoAtual" class="padding-8">
+                        <span id="spanQuestaoExibida" class="text-bold"></span>
+                    </div>
 
-            <div id="infoAlternativas" class="padding-8">
-                <span><em>Escolha uma opção dentre as abaixo:</em></span>
-            </div>
+                    <div id="infoAlternativas" class="padding-8">
+                        <span><em>Escolha uma opção dentre as abaixo:</em></span>
+                    </div>
 
-            <div id="opcoes" class="flex-colunar padding-8">
-                <span>
-                    <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
-                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
-                </span>
-                <span>
-                    <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
-                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
-                </span>
-                <span>
-                    <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
-                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
-                </span>
-                <span>
-                    <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
-                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
-                </span>
-            </div>
+                    <div id="opcoes" class="flex-colunar padding-8">
+                        <span>
+                            <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
+                            <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
+                            <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
+                            <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
+                            <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                        </span>
+                    </div>
 
-            <div id="timer" class="padding-8">
-                <span>Tempo restante: <span id="spanTempoRestante">30</span> segundos</span>
-            </div>
+                    <div id="timer" class="padding-8">
+                        <span>Tempo restante: <span id="spanTempoRestante">30</span> segundos</span>
+                    </div>
 
-            <div id="botoes" class="flex-colunar padding-8">
-                <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
-                <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
-                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
-            </div>
+                    <div id="botoes" class="flex-colunar padding-8">
+                        <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+                        <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+                        <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+                    </div>
 
-            <div id="barraProgresso">
-                <div id="barraProgressoInterna"></div>
+                    <div id="barraProgresso">
+                        <div id="barraProgressoInterna"></div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
-     <!--footer inicio-->
-      <section class="footer-section">
+        </section>
+        <!--footer inicio-->
+        <section class="footer-section">
             <footer class="footer">
                 <div class="footer-content">
                     <div class="footer-section about">
                         <h3>Skinzada</h3>
                         <p>&copy; 2025 Skinzada. Todos os direitos reservados.</p>
                     </div>
-        
+
                     <div class="footer-section links">
                         <h4>Links úteis</h4>
                         <a href="#privacidade">Política de Privacidade</a>
                         <a href="#termos">Termos de Uso</a>
                         <a href="#contato">Contato</a>
                     </div>
-        
+
                     <div class="footer-section contact">
                         <h4>Contato</h4>
                         <p>Email: contato@skinzada.com</p>
                         <p>Telefone: (11) 99999-9999</p>
                     </div>
-        
+
                     <div class="footer-section social">
                         <h4>Siga-nos</h4>
                         <div class="social-icons">
@@ -126,12 +127,13 @@
                 </div>
             </footer>
         </section>
-  </div>
+    </div>
     <script src="quiz.js"></script>
 </body>
+
 </html>
 <script>
-        const listaDeQuestoes = [
+    const listaDeQuestoes = [
         {
             pergunta: "Qual mês tem 30 dias?",
             alternativaA: "Janeiro",
@@ -332,9 +334,9 @@
 
     // Timer e barra de progresso
     function iniciarTimer() {
-        let tempoRestante = 30;  // Tempo inicial de 30 segundos
+        let tempoRestante = 30;
         document.getElementById("spanTempoRestante").innerHTML = tempoRestante;
-        document.getElementById("barraProgressoInterna").style.width = "100%";  // Preenche a barra de progresso
+        document.getElementById("barraProgressoInterna").style.width = "100%";
         timer = setInterval(() => {
             tempoRestante--;
             document.getElementById("spanTempoRestante").innerHTML = tempoRestante;
@@ -342,7 +344,7 @@
 
             if (tempoRestante <= 0) {
                 clearInterval(timer);
-                submeter();  // Submete automaticamente quando o tempo acabar
+                submeter();
             }
         }, 1000);
     }
