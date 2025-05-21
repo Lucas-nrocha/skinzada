@@ -1,0 +1,327 @@
+*{
+    margin: 0;
+    border: none;
+    padding: none;
+}
+
+.container{
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(to bottom,  #1c1c1c, #363636, #1c1c1c);
+}
+
+img{
+    position: absolute;
+    width: 170px;
+
+    z-index: 2;
+
+    margin-left: 100px;
+    margin-top:  20px;
+}
+
+header{
+    position: relative;
+
+    width: 100%;
+    height: 20%;
+
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.conteudo{
+    position: relative ;
+    flex-direction: row;
+    width: 100%;
+    height: 70%;
+
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.conteudo ul{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-end;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    gap: 80px;
+    
+    color: white;
+    margin-right: 10%;
+    font-size: 20px;
+    
+}
+
+.conteudo a{
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+    text-decoration: none;
+}
+
+.conteudo a:hover{
+     color: #f0a500;
+}
+
+nav{
+    position: relative;
+
+    width: 100%;
+    height: 30%;
+
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+
+    cursor: pointer;
+    font-size: 19px;
+}
+
+.menu li{
+    color: white;
+    margin-right: 20px;
+
+    transition: 0.2s ease-in;
+
+}
+
+.menu li:hover{
+    transform: translateY(-10px);
+     color: #f0a500;
+}
+
+.menu-content{
+    display: none;
+    position: absolute;
+    top: 100%;
+    align-items: center;
+    background-color: #444;
+    min-width: 60px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.menu li:hover .menu-content{
+    display: block;
+}
+
+.menu .menu-content li{
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.quizz-section{
+    width: 100%;
+    height: 65%;
+}
+
+/* Botão Iniciar */
+#btnIniciarQuiz {
+    background-color: #ffa200;
+    color: #0f0f0f;
+    display: flex;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    margin: 0 auto;
+}
+
+#btnIniciarQuiz:hover {
+    background-color: #ff8700;
+}
+
+/* Jogo */
+#jogo, #pontuacao {
+    background-color: #444;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 0 15px #00000080;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.padding-8 {
+    margin: 10px 0;
+}
+
+/* perguntas e opções */
+#perguntaDaQuestaoAtual span {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.option {
+    display: inline-block;
+    padding: 10px 16px;
+    margin: 10px 0;
+    border: 2px solid #ffa200;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.option:hover {
+    background-color: #ffa200;
+}
+
+/* Cores de resposta */
+.text-success-with-bg {
+    background-color: #14532d;
+    border-color: #22c55e;
+    color: #22c55e;
+}
+
+.text-danger-with-bg {
+    background-color: #450a0a;
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+.text-warning-with-bg {
+    background-color: #78350f;
+    border-color: #facc15;
+    color: #facc15;
+}
+
+/* Botoes de ação */
+#botoes button {
+    background-color: #ffa200;
+    color: white;
+    border: none;
+    margin: 8px 0;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#botoes button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+#botoes button:hover:enabled {
+    background-color: #ffa200;
+}
+
+/* relogio */
+#timer {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* barra de progresso */
+#barraProgresso {
+    width: 100%;
+    height: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+#barraProgressoInterna {
+    height: 100%;
+    background-color: #ffa200;
+    width: 100%;
+    transition: width 1s linear;
+}
+
+.footer {
+  background-color: #1a1a1a;
+  color: #eee;
+  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+
+.footer-section h3,
+.footer-section h4 {
+  color: #f0a500;
+  margin-bottom: 10px;
+}
+
+.footer-section a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #f0a500;
+}
+
+.social-icons a {
+  font-size: 20px;
+  margin-right: 15px;
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #f0a500;
+}
+
+
+
+
