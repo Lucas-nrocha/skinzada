@@ -40,20 +40,16 @@
             <h2>Bem-vindo!</h2>
               <div class="formulario">
                 <div class="campo">
-                  <span>Código de ativação:</span>
-                  <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
-                </div>
-                <div class="campo">
                   <span>Nome:</span>
-                  <input id="nome_input" type="text" placeholder="Seu nome" />
+                  <input id="ipt_nome_usuario.value;" type="text" placeholder="Seu nome" />
                 </div>
                 <div class="campo">
                   <span>E-mail:</span>
-                  <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
+                  <input id="ipt_email" type="text" placeholder="meuemail@provedor.com" />
                 </div>
                 <div class="campo">
                   <span>Senha:</span>
-                  <input id="senha_input" type="password" placeholder="******" />
+                  <input id="ipt_senha" type="password" placeholder="******" />
                 </div>
                 <div class="campo">
                   <span>Confirmação da Senha:</span>
@@ -102,3 +98,40 @@
 </body>
 
 </html>
+<script src="../../js/cadastro.js"></script>
+<script>
+  function registrar() {
+    var email = ipt_email.value;
+    var senha = ipt_senha.value;
+    var nome = ipt_nome_usuario.value;
+    
+    nomeError.innerHTML = '';
+    emailError.innerHTML = '';
+    senhaError.innerHTML = '';
+    
+    let isValid = true;
+    if(!nome){
+      nomeError.innerHTML += 'Insira um nome de usuario.';
+      nomeError.style.color = 'red';
+      isValid = false;
+    }
+
+
+    if(!email || !email.includes('@')){
+      emailError.innerHTML += 'Insira um email válido.';
+      emailError.style.color = 'red';
+      isValid = false;
+    }
+
+    if (senha.length < 6) {
+      senhaError.innerHTML += 'A senha deve ter pelo menos 6 caracteres.';
+      senhaError.style.color = 'red';
+      isValid = false;
+    }
+
+    if (isValid) {
+      cadastrar();
+      // window.location.href = 'login.html';
+    }
+  }
+</script>
