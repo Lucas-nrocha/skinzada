@@ -1,0 +1,234 @@
+*{
+    margin: 0;
+    border: none;
+    padding: none;
+}
+
+.container{
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(to bottom,  #1c1c1c, #363636, #1c1c1c);
+}
+
+img{
+    position: absolute;
+    width: 170px;
+
+    z-index: 2;
+
+    margin-left: 100px;
+    margin-top:  20px;
+}
+
+header{
+    position: relative;
+
+    width: 100%;
+    height: 20%;
+
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.conteudo{
+    position: relative ;
+    flex-direction: row;
+    width: 100%;
+    height: 70%;
+
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.conteudo ul{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-end;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    gap: 80px;
+    
+    color: white;
+    margin-right: 10%;
+    font-size: 20px;
+    
+}
+
+.conteudo a{
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+    text-decoration: none;
+}
+
+.conteudo a:hover{
+     color: #f0a500;
+}
+
+nav{
+    position: relative;
+
+    width: 100%;
+    height: 30%;
+
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-section {
+    width: 100%;
+    height: 60%;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f0a500;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 100%;   
+}
+
+
+.login .container-cadastro {
+    max-width: 1200px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 120px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto; 
+}
+
+.login .card-cadastro h2,
+.login .card-login h2 {
+    text-align: center;
+    color: #f0a500;
+    margin: 0 0 30px;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login .formulario .campo {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.login .formulario .campo span {
+    margin-bottom: 8px;
+    color: #f0a500;
+    font-size: 16px;
+}
+
+.login .formulario .campo input {
+    width: 379.56px;
+    padding-block: 12px;
+    border: 1px solid #f0a500;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    text-align: center;
+}
+
+.login .formulario .campo input:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.login .formulario .botao-cadastro,
+.login .formulario .botao-login {
+    width: 160px;
+    padding: 10px 50px;
+    background-color: #f0a500;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    margin: 20px auto 0;
+    text-align: center;
+}
+
+.login .formulario .botao-cadastro:hover,
+.login .formulario .botao-login:hover {
+    background-color: #f0a500;
+}
+
+
+.footer {
+  background-color: #1a1a1a;
+  color: #eee;
+  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+
+.footer-section h3,
+.footer-section h4 {
+  color: #f0a500;
+  margin-bottom: 10px;
+}
+
+.footer-section a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #f0a500;
+}
+
+.social-icons a {
+  font-size: 20px;
+  margin-right: 15px;
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #f0a500;
+}
