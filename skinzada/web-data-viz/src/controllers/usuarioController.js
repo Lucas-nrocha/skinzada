@@ -18,13 +18,13 @@ function autenticar(req, res) {
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); 
 
                                 if (resultadoAutenticar.length == 1) {
-                                  res.json({
-                                        id: resultadoAutenticar[0].id,
-                                        email: resultadoAutenticar[0].email,
-                                        nome: resultadoAutenticar[0].nome,
-                                        senha: resultadoAutenticar[0].senha
+                                    res.json({
+                                        idUsuario: resultadoAutenticar[0].idUsuario,
+                                        nome: resultadoAutenticar[0].nomeUsuario,
+                                        email: resultadoAutenticar[0].email
                                     });
-                                } else if (resultadoAutenticar.length == 0) {
+                                }
+                                 else if (resultadoAutenticar.length == 0) {
                                   res.status(403).send("Email e/ou senha inválido(s)");
                                 } else {
                                   res.status(403).send("Mais de um usuário com o mesmo login e senha!");
@@ -78,4 +78,7 @@ function cadastrar(req, res) {
 module.exports = {
     autenticar,
     cadastrar
+
 }
+
+

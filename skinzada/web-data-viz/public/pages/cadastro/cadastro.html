@@ -8,7 +8,7 @@
 
   <title>Skinzada | Cadastro</title>
 
-  <link rel="stylesheet" href="styles/cadastro.css" />
+  <link rel="stylesheet" href="../../styles/cadastro.css" />
   <link rel="icon" href="assets/icon/favicon2.ico" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
@@ -17,7 +17,7 @@
   <!--header inicio-->
   <div class="container">
       <a href="index.html">
-        <img src="assets/icon/logo.png" alt="Logo da Skinzada">
+        <img src="../../assets/icon/logo.png" alt="Logo da Skinzada">
       </a>
       <header>
         <div class="conteudo">
@@ -99,39 +99,3 @@
 
 </html>
 <script src="../../js/cadastro.js"></script>
-<script>
-  function registrar() {
-    var email = ipt_email.value;
-    var senha = ipt_senha.value;
-    var nome = ipt_nome_usuario.value;
-    
-    nomeError.innerHTML = '';
-    emailError.innerHTML = '';
-    senhaError.innerHTML = '';
-    
-    let isValid = true;
-    if(!nome){
-      nomeError.innerHTML += 'Insira um nome de usuario.';
-      nomeError.style.color = 'red';
-      isValid = false;
-    }
-
-
-    if(!email || !email.includes('@')){
-      emailError.innerHTML += 'Insira um email válido.';
-      emailError.style.color = 'red';
-      isValid = false;
-    }
-
-    if (senha.length < 6) {
-      senhaError.innerHTML += 'A senha deve ter pelo menos 6 caracteres.';
-      senhaError.style.color = 'red';
-      isValid = false;
-    }
-
-    if (isValid) {
-      cadastrar();
-      // window.location.href = 'login.html';
-    }
-  }
-</script>

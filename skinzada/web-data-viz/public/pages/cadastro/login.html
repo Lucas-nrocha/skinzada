@@ -8,7 +8,7 @@
 
     <title>AquaTech | Login</title>
 
-    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="../../styles/login.css">
     <link rel="icon" href="assets/icon/favicon2.ico">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
@@ -17,13 +17,12 @@
      <!--header inicio-->
     <div class="container">
           <a href="index.html">
-            <img src="assets/icon/logo.png" alt="Logo da Skinzada">
+            <img src="../../assets/icon/logo.png" alt="Logo da Skinzada">
           </a>
       <header>
             <div class="conteudo">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li>Quizz</li>
+                    <li><a href="../../index.html">Home</a></li>
                     <li>Sobre</li>
                     <li><a href="cadastro.html">Registro</a></li>
                 </ul>
@@ -47,7 +46,7 @@
                         <span>Senha:</span>
                         <input id="ipt_senha" type="password" placeholder="******">
                     </div>
-                    <button class="botao-login">Entrar</button>
+                    <button class="botao-login" onclick="entrar()">Entrar</button>
                 </div>
             </div>
         </div>
@@ -87,80 +86,6 @@
             </footer>
         </section>
   </div>
+  <script src="../../js/login.js"></script>
 </body>
-
 </html>
-<script>
-    let tentativs = 0;
-
- function entrar() {
-
-    var emailVar = ipt_email.value;
-    var senhaVar = ipt_senha.value;
-
-    if (emailVar == "" || senhaVar == "") {
-      cardErro.style.display = "block"
-      mensagem_erro.innerHTML = "Preencha todos os campos!";
-      finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000)
-    }
-
-    console.log
-      (
-        "E-mail " + emailVar + "\n",
-        "Senha " + senhaVar + "\n"
-      );
-
-    fetch("/usuarios/autenticar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        email: emailVar,
-        senha: senhaVar
-      })
-    }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO entrar()!")
-
-      if (resposta.ok) {
-        console.log(resposta);
-
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "Login realizado com sucesso! Redirecionando para tela de inicial...";
-
-        resposta.json().then(json => {
-          console.log(json);
-          console.log(JSON.stringify(json));
-          sessionStorage.EMAIL_USUARIO = json.email;
-          sessionStorage.NOME_USUARIO = json.nome;
-          sessionStorage.ID_USUARIO = json.id
-
-          setTimeout(function () {
-            window.location = "../dashboard/dashboard.html";
-          }, 1000);
-
-        });
-
-      } else {
-
-        console.log("Houve um erro ao tentar realizar o login!");
-
-        resposta.text().then(texto => {
-          console.error(texto);
-          finalizarAguardar(texto);
-        });
-      }
-
-    }).catch(function (erro) {
-      console.log(erro);
-    })
-    return false;
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none"
-  }
-</script>
