@@ -41,7 +41,7 @@ function autenticar(req, res) {
 }
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+   
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
@@ -56,7 +56,6 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else {
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(nome, email, senha)
             .then(
                 function (resultado) {
@@ -75,10 +74,61 @@ function cadastrar(req, res) {
     }
 }
 
-module.exports = {
-    autenticar,
-    cadastrar
 
+function uploadFoto(req, res) {
+    const idUsuario = req.params.idUsuario;
+    const nomeArquivo = req.file.filename;
+
+    usuarioModel.atualizarFotoPerfil(idUsuario, nomeArquivo)
+        .then(() => res.status(200).json({ mensagem: "Foto atualizada com sucesso!", nomeArquivo }))
+        .catch(erro => {
+            console.log("Erro ao atualizar foto:", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
 }
 
 
+function uploadFoto(req, res) {
+    const idUsuario = req.params.idUsuario;
+    const nomeArquivo = req.file?.filename;
+
+    if (!nomeArquivo) {
+        return res.status(400).send("Nenhuma imagem foi enviada.");
+    }
+
+    usuarioModel.atualizarFotoPerfil(idUsuario, nomeArquivo)
+        .then(() => {
+            res.status(200).json({
+                mensagem: "Foto de perfil atualizada com sucesso!",
+                nomeArquivo: nomeArquivo
+            });
+        })
+        .catch(erro => {
+            console.error("Erro ao atualizar foto:", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+function exibirPerfil(req, res) {
+    const idUsuario = req.params.idUsuario;
+
+    usuarioModel.buscarPerfil(idUsuario)
+        .then(resultado => {
+            if (resultado.length === 1) {
+                res.status(200).json(resultado[0]);
+            } else {
+                res.status(404).send("Usuário não encontrado.");
+            }
+        })
+        .catch(erro => {
+            console.error("Erro ao buscar perfil:", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+module.exports = {
+    autenticar,
+    cadastrar,
+    uploadFoto,
+    exibirPerfil
+};

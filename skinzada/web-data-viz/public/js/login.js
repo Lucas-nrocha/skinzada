@@ -33,7 +33,7 @@ function entrar() {
         sessionStorage.NOME_USUARIO = json.nomeUsuario;
         sessionStorage.ID_USUARIO = json.idUsuario;
 
-        window.location = "../../index.html";
+        window.location = "perfil.html";
     })
     .catch(erro => {
         console.error("Erro:", erro);

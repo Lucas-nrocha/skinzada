@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil | Skinzada</title>
+  <link rel="stylesheet" href="../../styles/perfil.css" />
+</head>
+<body onload="carregarPerfil()">
+  <div class="container">
+    <a href="../../index.html">
+      <img src="../../assets/icon/logo.png" alt="Logo da Skinzada" />
+    </a>
+    <header>
+      <div class="conteudo">
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li>Sobre</li>
+          <li><a href="../quiz/perfil.html">Perfil</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="perfil-section">
+        <h1>Meu Perfil</h1>
+      
+        <div class="perfil-container">
+            <div class="form-foto">
+                <img id="fotoPerfil" src="../../assets/imgs/avatar-padrao.png" alt="Foto do usuário" class="foto-perfil" />
+              
+                <label for="inputFoto" class="custom-file-upload">Escolher arquivo</label>
+                <input type="file" id="inputFoto" accept="image/*" />
+              
+                <button onclick="atualizarFoto()">Atualizar Foto</button>
+              </div>
+              
+      
+          <div class="dados-perfil">
+            <p><strong>Nome:</strong> <span id="nomeUsuario">Carregando...</span></p>
+            <p><strong>Email:</strong> <span id="emailUsuario">Carregando...</span></p>
+          </div>
+        </div>
+      </section>
+      
+    <section class="footer-section">
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-section about">
+            <h3>Skinzada</h3>
+            <p>&copy; 2025 Skinzada. Todos os direitos reservados.</p>
+          </div>
+          <div class="footer-section links">
+            <h4>Links úteis</h4>
+            <a href="#privacidade">Política de Privacidade</a>
+            <a href="#termos">Termos de Uso</a>
+            <a href="#contato">Contato</a>
+          </div>
+          <div class="footer-section contact">
+            <h4>Contato</h4>
+            <p>Email: contato@skinzada.com</p>
+            <p>Telefone: (11) 99999-9999</p>
+          </div>
+          <div class="footer-section social">
+            <h4>Siga-nos</h4>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-discord"></i></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+  </div>
+
+  <script src="../../js/perfil.js"></script>
+</body>
+</html>
