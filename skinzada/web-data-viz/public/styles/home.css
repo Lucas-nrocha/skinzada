@@ -266,6 +266,38 @@ nav{
   color: #f0a500;
 }
 
+.avatar-header {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.avatar-header:hover {
+  transform: scale(1.05);
+}
+
+.botao-sair {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.botao-sair:hover {
+  background-color: #c0392b;
+}
+
+
 
 
 

@@ -1,14 +1,7 @@
-esse é o css 
-* {
-    margin: 0;
-    border: none;
-    padding: 0;
-  }
-  
   .container {
     position: absolute;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
     background: linear-gradient(to bottom, #1c1c1c, #363636, #1c1c1c);
   }
   
@@ -35,7 +28,7 @@ esse é o css
     position: relative;
     flex-direction: row;
     width: 100%;
-    height: 70%;
+    height: 80%;
     background-color: transparent;
     display: flex;
     flex-direction: column;
@@ -84,6 +77,7 @@ esse é o css
     text-align: left;
   }
   
+  
   .footer-section h3,
   .footer-section h4 {
     color: #f0a500;
@@ -120,8 +114,7 @@ esse é o css
     justify-content: flex-start;
     font-family: Arial, sans-serif;
     color: white;
-    padding: 40px 20px;
-    min-height: calc(100vh - 200px);
+    height: 60%;
     text-align: center;
   }
   
@@ -221,4 +214,36 @@ esse é o css
   .custom-file-upload:hover {
     background-color: #ff8700;
   }
+
+  .avatar-header {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .avatar-header:hover {
+    transform: scale(1.05);
+  }
+
+  .botao-sair {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .botao-sair:hover {
+    background-color: #c0392b;
+  }
+  
   

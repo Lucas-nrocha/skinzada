@@ -7,7 +7,7 @@ var usuarioController = require("../controllers/usuarioController");
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "public/uploads/"); 
+        cb(null, path.resolve("public/assets/uploads"));
     },
     filename: function (req, file, cb) {
         const nomeFinal = Date.now() + path.extname(file.originalname);

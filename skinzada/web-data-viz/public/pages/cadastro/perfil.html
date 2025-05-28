@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Perfil | Skinzada</title>
   <link rel="stylesheet" href="../../styles/perfil.css" />
+  <script>
+    if (!sessionStorage.ID_USUARIO || !sessionStorage.EMAIL_USUARIO) {
+      alert("Você precisa estar logado para acessar o quiz.");
+      window.location.href = "../cadastro/login.html";
+    }
+  </script>
 </head>
 <body onload="carregarPerfil()">
   <div class="container">
@@ -14,9 +20,6 @@
     <header>
       <div class="conteudo">
         <ul>
-          <li><a href="../../index.html">Home</a></li>
-          <li>Sobre</li>
-          <li><a href="../quiz/perfil.html">Perfil</a></li>
         </ul>
       </div>
     </header>
@@ -25,16 +28,13 @@
         <h1>Meu Perfil</h1>
       
         <div class="perfil-container">
-            <div class="form-foto">
-                <img id="fotoPerfil" src="../../assets/imgs/avatar-padrao.png" alt="Foto do usuário" class="foto-perfil" />
-              
-                <label for="inputFoto" class="custom-file-upload">Escolher arquivo</label>
-                <input type="file" id="inputFoto" accept="image/*" />
-              
-                <button onclick="atualizarFoto()">Atualizar Foto</button>
-              </div>
-              
-      
+          <form id="formFoto" class="form-foto">
+            <img id="fotoPerfil" src="../../assets/imgs/avatar-padrao.png" alt="Foto do usuário" class="foto-perfil" />
+            <label for="inputFoto" class="custom-file-upload">Escolher arquivo</label>
+            <input type="file" id="inputFoto" accept="image/*" />
+            <button type="submit">Atualizar Foto</button>
+          </form>
+
           <div class="dados-perfil">
             <p><strong>Nome:</strong> <span id="nomeUsuario">Carregando...</span></p>
             <p><strong>Email:</strong> <span id="emailUsuario">Carregando...</span></p>
@@ -72,7 +72,55 @@
       </footer>
     </section>
   </div>
-
-  <script src="../../js/perfil.js"></script>
 </body>
 </html>
+<script>
+window.addEventListener("DOMContentLoaded", async () => {
+    const nomeUsuario = sessionStorage.NOME_USUARIO;
+    const emailUsuario = sessionStorage.EMAIL_USUARIO;
+    const idUsuario = sessionStorage.ID_USUARIO;
+  
+    const ul = document.querySelector("header .conteudo ul");
+  
+    if (!ul) return;
+  
+    // Cria dinamicamente o avatar com imagem personalizada
+    if (nomeUsuario && emailUsuario && idUsuario) {
+      try {
+        const resposta = await fetch(`/usuarios/perfil/${idUsuario}`);
+        const dados = await resposta.json();
+  
+        const foto = dados.foto_perfil
+        ? `/assets/uploads/${dados.foto_perfil}`
+        : "/assets/imgs/avatar-padrao.png"; 
+
+
+  
+        ul.innerHTML = `
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="../quiz/quizz.html">Quiz</a></li>
+          <li>
+            <a href="../quiz/perfil.html">
+              <img src="${foto}" alt="Avatar" class="avatar-header" title="${nomeUsuario}" />
+            </a>
+          </li>
+          <li><button onclick="limparSessao()" class="botao-sair">Sair</button></li>
+        `;
+      } catch (erro) {
+        console.error("Erro ao carregar avatar:", erro);
+      }
+    } else {
+      // Se não estiver logado, mostra botões padrão
+      ul.innerHTML = `
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="../quiz/quizz.html" style="display: none">Quiz</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="cadastro.html">Registro</a></li>
+      `;
+    }
+  });
+</script>
+<script src="../../js/sessao.js"></script>
+<script src="../../js/perfil.js"></script>
