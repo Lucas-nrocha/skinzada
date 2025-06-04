@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Skinzada</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body onload="carregarDashboard()">
+    <div class="container">
+        <a href="../../index.html">
+            <img src="../../assets/icon/logo.png" alt="Logo da Skinzada" />
+        </a>
+        <header>
+            <div class="conteudo">
+                <ul>
+                </ul>
+            </div>
+        </header>
+        <section class="dash-section">
+            <h2>Estatísticas do Quiz</h2>
+            <div class="grafico-container">
+                <canvas id="graficoPizza"></canvas>
+                <div class="legenda-custom">
+                    <span><strong>Acertos:</strong> <span id="labelAcertos">-</span></span>
+                    <span><strong>Erros:</strong> <span id="labelErros">-</span></span>
+                    <span><strong>Pergunta mais acertada:</strong> <span
+                            id="perguntaMaisAcertada">Carregando...</span></span>
+                    <span><strong>Pergunta mais errada:</strong> <span
+                            id="perguntaMaisErrada">Carregando...</span></span>
+                </div>
+            </div>
+        </section>
+        <section class="footer-section">
+            <footer class="footer">
+                <div class="footer-content">
+                    <div class="footer-section about">
+                        <h3>Skinzada</h3>
+                        <p>&copy; 2025 Skinzada. Todos os direitos reservados.</p>
+                    </div>
+                    <div class="footer-section links">
+                        <h4>Links úteis</h4>
+                        <a href="/pages/quiz/quizz.html">Quiz</a>
+                        <a href="/pages/sobre-mim/sobremim.html">Sobre</a>
+                    </div>
+                    <div class="footer-section contact">
+                        <h4>Contato</h4>
+                        <p>Email: contato@skinzada.com</p>
+                        <p>Telefone: (11) 99999-9999</p>
+                    </div>
+                </div>
+            </footer>
+        </section>
+    </div>
+    <script>
+        async function carregarDashboard() {
+            const idUsuario = sessionStorage.ID_USUARIO;
+
+            try {
+                const resposta = await fetch(`/quiz/dashboard/${idUsuario}`);
+                const resultado = await resposta.json();
+
+                document.getElementById("labelAcertos").textContent = resultado.acertos + " respostas";
+                document.getElementById("labelErros").textContent = resultado.erros + " respostas";
+                document.getElementById("perguntaMaisAcertada").textContent = resultado.perguntaMaisAcertada || "N/A";
+                document.getElementById("perguntaMaisErrada").textContent = resultado.perguntaMaisErrada || "N/A";
+
+                const ctx = document.getElementById('graficoPizza').getContext('2d');
+                new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Acertos', 'Erros'],
+                        datasets: [{
+                            data: [resultado.acertos, resultado.erros],
+                            backgroundColor: ['#F0a500', '#FF6347'],
+                            borderColor: ['#fff', '#fff'],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    color: 'white'
+                                }
+                            }
+                        }
+                    }
+                });
+
+            } catch (erro) {
+                alert("Erro ao carregar dados da dashboard: " + erro.message);
+                console.error(erro);
+            }
+        }
+
+        window.onload = carregarDashboard;
+    </script>
+</body>
+</html>
+<script>
+    window.addEventListener("DOMContentLoaded", async () => {
+      const nomeUsuario = sessionStorage.NOME_USUARIO;
+      const emailUsuario = sessionStorage.EMAIL_USUARIO;
+      const idUsuario = sessionStorage.ID_USUARIO;
+    
+      const ul = document.querySelector("header .conteudo ul");
+    
+      if (!ul) return;
+    
+      if (nomeUsuario && emailUsuario && idUsuario) {
+        try {
+          const resposta = await fetch(`/usuarios/perfil/${idUsuario}`);
+          const dados = await resposta.json();
+    
+          const caminho = ""; 
+          const foto = dados.foto_perfil
+          ? `/assets/uploads/${dados.foto_perfil}`
+          : "/assets/imgs/avatar-padrao.png";
+    
+          ul.innerHTML = `
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../quiz/quizz.html">Quiz</a></li>
+            <li>
+              <a href="../cadastro/perfil.html">
+                <img src="${foto}" alt="Avatar" class="avatar-header" title="${nomeUsuario}" />
+              </a>
+            </li>
+            <li><button onclick="limparSessao()" class="botao-sair">Sair</button></li>
+          `;
+        } catch (erro) {
+          console.error("Erro ao carregar avatar:", erro);
+        }
+      }
+    });
+
+    function limparSessao() {
+    sessionStorage.clear();
+    window.location = "../cadastro/login.html";
+}
+</script>

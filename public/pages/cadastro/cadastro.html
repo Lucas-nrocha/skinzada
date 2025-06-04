@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skinzada | Cadastro</title>
+  <link rel="stylesheet" href="../../styles/cadastro.css" />
+  <link rel="icon" href="assets/icon/favicon2.ico" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+</head>
+<body>
+  <div class="container">
+      <a href="../../index.html">
+        <img src="../../assets/icon/logo.png" alt="Logo da Skinzada">
+      </a>
+      <header>
+        <div class="conteudo">
+          <ul>
+            <li><a href="../../index.html">Home</a></li>  
+            <li><a href="../sobre-mim/sobremim.html">Sobre</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <nav>
+        </nav>
+      </header>
+      <section class="login-section">
+          <div class="login">
+            <div class="container-login">
+                <div class="card card-cadastro">
+                  <h2>Bem-vindo!</h2>
+                    <div class="formulario">
+                      <div class="campo">
+                        <span>Nome:</span>
+                        <input id="ipt_nome" type="text" placeholder="Seu nome" />
+                      </div>
+                      <div class="campo">
+                        <span>E-mail:</span>
+                        <input id="ipt_email" type="text" placeholder="meuemail@provedor.com" />
+                      </div>
+                      <div class="campo">
+                        <span>Senha:</span>
+                        <input id="ipt_senha" type="password" placeholder="******" />
+                      </div>
+                      <div class="campo">
+                        <span>Confirmação da Senha:</span>
+                        <input id="confirmacao_senha_input" type="password" placeholder="******" />
+                      </div>
+                      <button class="botao-cadastro" onclick="cadastrar()">Cadastrar</button>
+                  </div>
+              </div>
+            </div>
+          </div>  
+      </section>
+       <section class="footer-section">
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>Skinzada</h3>
+                    <p>&copy; 2025 Skinzada. Todos os direitos reservados.</p>
+                </div>    
+                <div class="footer-section links">
+                    <h4>Links úteis</h4>
+                    <a href="pages/quiz/quizz.html">Quiz</a>
+                    <a href="pages/dashboard/dashboard.html">Dashboard</a>
+                    <a href="#sobre">Sobre</a>
+                </div>    
+                <div class="footer-section contact">
+                    <h4>Contato</h4>
+                    <p>Email: contato@skinzada.com</p>
+                    <p>Telefone: (11) 99999-9999</p>
+                </div>
+            </div>
+        </footer>
+    </section>
+  </div>
+</body>
+</html>
+<script src="../../js/cadastro.js"></script>

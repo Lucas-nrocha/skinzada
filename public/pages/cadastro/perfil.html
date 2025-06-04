@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil | Skinzada</title>
+  <link rel="stylesheet" href="../../styles/perfil.css" />
+  <script>
+    if (!sessionStorage.ID_USUARIO || !sessionStorage.EMAIL_USUARIO) {
+      alert("Você precisa estar logado para acessar o quiz.");
+      window.location.href = "../cadastro/login.html";
+    }
+  </script>
+</head>
+<body onload="carregarPerfil()">
+  <div class="container">
+    <a href="../../index.html">
+      <img src="../../assets/icon/logo.png" alt="Logo da Skinzada" />
+    </a>
+    <header>
+      <div class="conteudo">
+        <ul>
+        </ul>
+      </div>
+    </header>
+    <section class="perfil-section">
+        <h1>Meu Perfil</h1>
+        <div class="perfil-container">
+          <form id="formFoto" class="form-foto">
+            <img id="fotoPerfil" src="../../assets/imgs/avatar-padrao.png
+            " alt="Foto do usuário" class="foto-perfil" />
+            <div class="dados-perfil">
+              <p><strong>Nome:</strong> <span id="nomeUsuario">Carregando...</span></p>
+              <p><strong>Email:</strong> <span id="emailUsuario">Carregando...</span></p>
+            </div>
+            <label for="inputFoto" class="custom-file-upload">Escolher arquivo</label>
+            <input type="file" id="inputFoto" accept="image/*" />
+            <button type="submit">Atualizar Foto</button>
+          </form>
+        </div>
+      </section>      
+      <section class="footer-section">
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>Skinzada</h3>
+                    <p>&copy; 2025 Skinzada. Todos os direitos reservados.</p>
+                </div>    
+                <div class="footer-section links">
+                    <h4>Links úteis</h4>
+                    <a href="/pages/quiz/quizz.html">Quiz</a>
+                    <a href="/pages/dashboard/dashboard.html">Dashboard</a>
+                    <a href="/pages/sobre-mim/sobremim.html">Sobre</a>
+                </div>    
+                <div class="footer-section contact">
+                    <h4>Contato</h4>
+                    <p>Email: contato@skinzada.com</p>
+                    <p>Telefone: (11) 99999-9999</p>
+                </div>
+            </div>
+        </footer>
+    </section>
+    </section>
+  </div>
+</body>
+</html>
+<script>
+  window.addEventListener("DOMContentLoaded", async () => {
+    const nomeUsuario = sessionStorage.NOME_USUARIO;
+    const emailUsuario = sessionStorage.EMAIL_USUARIO;
+    const idUsuario = sessionStorage.ID_USUARIO;
+  
+    const ul = document.querySelector("header .conteudo ul");
+  
+    if (!ul) return;
+  
+    if (nomeUsuario && emailUsuario && idUsuario) {
+      try {
+        const resposta = await fetch(`/usuarios/perfil/${idUsuario}`);
+        const dados = await resposta.json();
+  
+        const foto = dados.foto_perfil
+        ? `/assets/uploads/${dados.foto_perfil}`
+        : "/assets/imgs/avatar-padrao.png"; 
+        
+        ul.innerHTML = `
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../quiz/quizz.html">Quiz</a></li>
+          <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
+          <li>
+              <img src="${foto}" alt="Avatar" class="avatar-header" title="${nomeUsuario}" />
+          </li>
+          <li><button onclick="limparSessao()" class="botao-sair">Sair</button></li>
+        `;
+      } catch (erro) {
+        console.error("Erro ao carregar avatar:", erro);
+      }
+    }
+  });
+  function limparSessao() {
+    sessionStorage.clear();
+    window.location = "login.html";
+  }
+</script>
+<script src="../../js/sessao.js"></script>
+<script src="../../js/perfil.js"></script>

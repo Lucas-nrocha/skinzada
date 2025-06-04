@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/home.css">
+    <title>tela certa</title>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html">
+            <img src="assets/icon/logo.png" class="logo-principal" alt="Logo da Skinzada">
+        </a>
+        <header>
+            <div class="conteudo">
+                <ul>
+                </ul>
+            </div>
+            <nav>
+                <ul class="menu">
+                  <li>Rifles
+                    <ul class="menu-content">
+                      <li>
+                        <a href="pages/skins/ak-47_bloodsport.html">
+                          <img src="../../assets/icon/icon-ak.png" class="menu-icon"> AK-47
+                        </a>
+                      </li>
+                      <li>
+                        <a href="pages/skins/m4a4_howl.html">
+                          <img src="../../assets/icon/icon-m4a4.png" class="menu-icon"> M4A4
+                        </a>
+                      </li>
+                      <li>
+                        <a href="pages/skins/m4a1-s_fade.html">
+                          <img src="../../assets/icon/icon-m4a1.png" class="menu-icon"> M4A1-S
+                        </a>
+                      </li>
+                      <li>
+                        <a href="pages/skins/awp_dragon_lore.html">
+                          <img src="../../assets/icon/icon-awp.png" class="menu-icon"> AWP
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+              
+                  <li>Knives
+                    <ul class="menu-content">
+                      <li>
+                        <a href="pages/skins/karambit_tiger_tooth.html">
+                          <img src="../../assets/icon/icon-karambit.png" class="menu-icon"> Karambit
+                        </a>
+                      </li>
+                      <li>
+                        <a href="pages/skins/m9_lore.html">
+                          <img src="../../assets/icon/icon-m9.png" class="menu-icon"> M9 Bayoneta
+                        </a>
+                      </li>
+                      <li>
+                        <a href="pages/skins/butterfly_emerald.html">
+                          <img src="../../assets/icon/icon-butterfly.png" class="menu-icon"> Butterfly
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+              
+                  <li>Pistols
+                    <ul class="menu-content">
+                      <li>
+                        <a href="pages/skins/usp_killConformed.html">
+                          <img src="../../assets/icon/icon-usp.png" class="menu-icon"> USP
+                        </a>
+                      </li>
+                      <li>
+                        <a href="pages/skins/glock-18_shinobu.html">
+                          <img src="../../assets/icon/icon-glock.png" class="menu-icon"> Glock-18
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+        </header>
+        <section class="itens-section">
+        <div class="texto">
+            <h1>Skins de CS2 e CSGO</h1>
+            <p>Confira todas as skins e alguns quizes de CS2 e CS:GO. Confira preços, estatísticas e muito mais!</p>
+        </div>
+
+        <div class="images-container">
+            <div class="imagem-card">
+                <a href="pages/skins/karambit_tiger_tooth.html">
+                    <img src="assets/imgs/karambit.png" alt="Karambit Knife | Tiger Tooth">
+                  </a>
+                
+                <p class="nome">Karambit Knife | Tiger Tooth</p>
+                <p class="preco">R$ 5.499,00</p>
+            </div>
+        
+            <div class="imagem-card">
+                <a href="pages/skins/awp_dragon_lore.html">
+                <img src="assets/imgs/dragonlorepng.png" alt="AWP | Dragon Lore">
+                </a>
+                <p class="nome">AWP | Dragon Lore</p>
+                <p class="preco">R$ 71.070,00</p>
+                
+            </div>
+        
+            <div class="imagem-card">
+                <a href="pages/skins/butterfly_emerald.html">
+                    <img src="assets/imgs/butterfly-Emerald.png" alt="Butterfly Knife | Emerald">
+                </a>
+                <p class="nome">Butterfly Knife | Doppler Emerald</p>
+                <p class="preco">R$ 122.500,00</p>
+            </div>
+        </div>
+        </section>
+
+        <section class="footer-section">
+            <footer class="footer">
+                <div class="footer-content">
+                    <div class="footer-section about">
+                        <h3>Skinzada</h3>
+                        <p>&copy; 2025 Skinzada. Todos os direitos reservados.</p>
+                    </div>
+        
+                    <div class="footer-section links">
+                        <h4>Links úteis</h4>
+                        <a href="pages/quiz/quizz.html">Quiz</a>
+                        <a href="pages/dashboard/dashboard.html">Dashboard</a>
+                        <a href="pages/sobre-mim/sobremim.html">Sobre</a>
+                    </div>
+        
+                    <div class="footer-section contact">
+                        <h4>Contato</h4>
+                        <p>Email: contato@skinzada.com</p>
+                        <p>Telefone: (11) 99999-9999</p>
+                    </div>
+                </div>
+            </footer>
+        </section>
+    </div>
+    
+</body>
+</html>
+<script>
+    window.addEventListener("DOMContentLoaded", async () => {
+      const nomeUsuario = sessionStorage.NOME_USUARIO;
+      const emailUsuario = sessionStorage.EMAIL_USUARIO;
+      const idUsuario = sessionStorage.ID_USUARIO;
+    
+      const ul = document.querySelector("header .conteudo ul");
+    
+      if (!ul) return;
+    
+      if (nomeUsuario && emailUsuario && idUsuario) {
+        try {
+          const resposta = await fetch(`/usuarios/perfil/${idUsuario}`);
+          const dados = await resposta.json();
+    
+          const caminho = "";
+          const foto = dados.foto_perfil
+          ? `/assets/uploads/${dados.foto_perfil}`
+          : "/assets/imgs/avatar-padrao.png";
+    
+          ul.innerHTML = `
+            <li><a href="pages/quiz/quizz.html">Quiz</a></li>
+            <li><a href="pages/dashboard/dashboard.html">Dashboard</a></li>
+            <li><a href="pages/sobre-mim/sobremim.html">Sobre</a></li>
+            <li>
+              <a href="pages/cadastro/perfil.html">
+                <img src="${foto}" alt="Avatar" class="avatar-header" title="${nomeUsuario}" />
+              </a>
+            </li>
+            <li><button onclick="limparSessao()" class="botao-sair">Sair</button></li>
+          `;
+        } catch (erro) {
+          console.error("Erro ao carregar avatar:", erro);
+        }
+      } else {
+        ul.innerHTML = `
+          <li><a href="pages/quiz/quizz.html" style="display: none">Quiz</a></li>
+          <li><a href="pages/sobre-mim/sobremim.html">Sobre</a></li>
+          <li><a href="pages/cadastro/login.html">Login</a></li>
+          <li><a href="pages/cadastro/cadastro.html">Registro</a></li>
+        `;
+      }
+    });
+
+    function limparSessao() {
+    sessionStorage.clear();
+    window.location = "pages/cadastro/login.html";
+}
+</script>
+<script src="js/sessao.js"></script>

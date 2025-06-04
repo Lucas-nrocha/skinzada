@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Skinzada</title>
+  <link rel="stylesheet" href="../../styles/skins.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body onload="carregarGraficoSkin()">
+  <div class="container">
+    <a href="../../index.html">
+      <img src="../../assets/icon/logo.png" class="logo-principal" alt="Logo da Skinzada" />
+    </a>
+    <header>
+      <div class="conteudo">
+      </div>
+      <nav>
+        <ul class="menu">
+          <li>Rifles
+            <ul class="menu-content">
+              <li>
+                <a href="ak-47_bloodsport.html">
+                  <img src="../../assets/icon/icon-ak.png" class="menu-icon"> AK-47
+                </a>
+              </li>
+              <li>
+                <a href="m4a4_howl.html">
+                  <img src="../../assets/icon/icon-m4a4.png" class="menu-icon"> M4A4
+                </a>
+              </li>
+              <li>
+                <a href="m4a1-s_fade.html">
+                  <img src="../../assets/icon/icon-m4a1.png" class="menu-icon"> M4A1-S
+                </a>
+              </li>
+              <li>
+                <a href="awp_dragon_lore.html">
+                  <img src="../../assets/icon/icon-awp.png" class="menu-icon"> AWP
+                </a>
+              </li>
+            </ul>
+          </li>      
+          <li>Knives
+            <ul class="menu-content">
+              <li>
+                <a href="karambit_tiger_tooth.html">
+                  <img src="../../assets/icon/icon-karambit.png" class="menu-icon"> Karambit
+                </a>
+              </li>
+              <li>
+                <a href="m9_lore.html">
+                  <img src="../../assets/icon/icon-m9.png" class="menu-icon"> M9 Bayoneta
+                </a>
+              </li>
+              <li>
+                <a href="butterfly_emerald.html">
+                  <img src="../../assets/icon/icon-butterfly.png" class="menu-icon"> Butterfly
+                </a>
+              </li>
+            </ul>
+          </li>      
+          <li>Pistols
+            <ul class="menu-content">
+              <li>
+                <a href="usp_killConformed.html">
+                  <img src="../../assets/icon/icon-usp.png" class="menu-icon"> USP
+                </a>
+              </li>
+              <li>
+                <a href="glock-18_shinobu.html">
+                  <img src="../../assets/icon/icon-glock.png" class="menu-icon"> Glock-18
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section class="skin-section">
+      <div class="skin-grafico-container">
+        <div class="skin-imagem">
+        <span class="texto-skin">M4A1-S - Fade</span>
+          <img src="../../assets/imgs/m4a1-s-Fade.png" alt="Imagem da Skin" />
+        </div>
+        <div class="grafico-linha">
+          <canvas id="graficoLinha"></canvas>
+        </div>
+      </div>
+    </section>
+    <section class="footer-section">
+      <footer class="footer">
+          <div class="footer-content">
+              <div class="footer-section about">
+                  <h3>Skinzada</h3>
+                  <p>&copy; 2025 Skinzada. Todos os direitos reservados.</p>
+              </div>
+              <div class="footer-section links">
+                  <h4>Links úteis</h4>
+                  <a href="/pages/quiz/quizz.html">Quiz</a>
+                  <a href="/pages/dashboard/dashboard.html">Dashboard</a>
+                  <a href="/pages/sobre-mim/sobremim.html">Sobre</a>
+              </div>
+  
+              <div class="footer-section contact">
+                  <h4>Contato</h4>
+                  <p>Email: contato@skinzada.com</p>
+                  <p>Telefone: (11) 99999-9999</p>
+              </div>
+          </div>
+      </footer>
+  </section>
+  </div>
+  <script>
+    async function carregarGraficoSkin() {
+    const idSkin = 12;
+
+    try {
+    const resposta = await fetch(`/skins/valores-ultimos-6-meses/${idSkin}`);
+    if (!resposta.ok) throw new Error(`Erro HTTP: ${resposta.status}`);
+
+    const dados = await resposta.json();
+
+    const meses = dados.map(item => item.mes);
+    const valores = dados.map(item => item.valor_medio); 
+
+    const ctx = document.getElementById('graficoLinha').getContext('2d');
+    const gradient = ctx.createLinearGradient(0, 0, 0, 400); 
+    gradient.addColorStop(0, 'rgba(255, 135, 0, 0.6)'); 
+    gradient.addColorStop(1, 'rgba(28, 28, 28, 0.1)'); 
+    
+    new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: meses,
+        datasets: [{
+        label: 'Valor da AWP (R$)',
+        data: valores,
+        borderColor: '#ff8700',
+        backgroundColor: gradient,
+        fill: true,
+        tension: 0.2
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+        legend: {
+            position: 'bottom',
+            labels: { color: 'white' }
+        },
+        title: {
+        display: true,
+        text: 'Valores nos últimos 6 meses',
+        color: 'white',
+        font: {
+          size: 18,
+          weight: 'bold'
+        },
+        padding: {
+          top: 10,
+          bottom: 30
+         }
+        }
+        },
+        scales: {
+        x: { ticks: { color: 'white' } },
+        y: { ticks: { color: 'white' } }
+        }
+    }
+    });
+
+
+  } catch (erro) {
+    alert("Erro ao carregar dados do gráfico: " + erro.message);
+    console.error(erro);
+  
+  }
+}
+
+    window.addEventListener("DOMContentLoaded", async () => {
+      const nomeUsuario = sessionStorage.NOME_USUARIO;
+      const emailUsuario = sessionStorage.EMAIL_USUARIO;
+      const idUsuario = sessionStorage.ID_USUARIO;
+
+      const divConteudo = document.querySelector("header .conteudo");
+
+      if (!divConteudo) return;
+
+      const ul = document.createElement("ul");
+
+      if (nomeUsuario && emailUsuario && idUsuario) {
+        try {
+          const resposta = await fetch(`/usuarios/perfil/${idUsuario}`);
+          const dados = await resposta.json();
+
+          const foto = dados.foto_perfil
+            ? `/assets/uploads/${dados.foto_perfil}`
+            : "/assets/imgs/avatar-padrao.png";
+
+          ul.innerHTML = `
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../quiz/quizz.html">Quiz</a></li>
+            <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
+            <li>
+              <a href="../cadastro/perfil.html">
+                <img src="${foto}" alt="Avatar" class="avatar-header" title="${nomeUsuario}" />
+              </a>
+            </li>
+            <li><button onclick="limparSessao()" class="botao-sair">Sair</button></li>
+          `;
+        } catch (erro) {
+          console.error("Erro ao carregar avatar:", erro);
+        }
+      }else {
+      ul.innerHTML = `
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../sobre-mim/sobremim.html">Sobre</a></li>
+        <li><a href="../cadastro/login.html">Login</a></li>
+        <li><a href="../cadastro/cadastro.html">Registro</a></li>
+      `;
+    }
+
+      divConteudo.appendChild(ul);
+    });
+  </script>
+</body>
+</html>

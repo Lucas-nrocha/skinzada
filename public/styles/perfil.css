@@ -1,0 +1,372 @@
+*{
+  margin: 0;
+  border: none;
+  padding: none;
+}
+
+body {
+font-family: 'Source Sans Pro', sans-serif;
+}
+
+.container{
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(to bottom,  #1c1c1c, #363636, #1c1c1c);
+}
+
+img{
+  position: absolute;
+  width: 170px;
+
+  z-index: 2;
+
+  margin-left: 100px;
+  margin-top:  20px;
+}
+
+header{
+  position: relative;
+
+  width: 100%;
+  height: 20%;
+
+  background: transparent;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+nav{
+  position: relative;
+
+  width: 100%;
+  height: 30%;
+
+  background-color: transparent;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Verdana', sans-serif;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu > li {
+  position: relative;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.menu-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #2d2d2d;
+  border-radius: 10px;
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  min-width: 150px;
+  z-index: 1000;
+  font-size: 18px;
+}
+
+.menu li:hover .menu-content {
+  display: flex;
+}
+
+.menu-content li {
+  list-style: none;
+  padding: 6px 10px;
+}
+
+
+.menu-content li a {
+  text-decoration: none;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-content li a:hover {
+  color: #ff8700;
+}
+
+.menu-icon {
+  width: 50px !important;
+  height: auto !important;
+  object-fit: contain;
+}
+
+.avatar-header {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    margin-top: -5px;
+    margin-left: 10px
+  }
+  
+  .avatar-header:hover {
+    transform: scale(1.05);
+  }
+  
+.conteudo{
+    position: relative ;
+    flex-direction: row;
+    width: 100%;
+
+
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.conteudo ul{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-end;
+    font-family: 'Verdana', sans-serif;
+    font-weight: bolder;
+    gap: 80px;
+    
+    color: white;
+    margin-right: 10%;
+    font-size: 20px;
+    
+}
+
+.conteudo a{
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+    text-decoration: none;
+    font-family: 'Verdana', sans-serif;
+
+}
+
+.conteudo a:hover{
+     color: #f0a500;
+}
+
+  .footer {
+    background-color: #1a1a1a;
+    color: #eee;
+    padding: 40px 20px;
+    font-family: 'Verdana', sans-serif;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  
+  .footer-section h3,
+  .footer-section h4 {
+    color: #f0a500;
+    margin-bottom: 10px;
+  }
+  
+  .footer-section a {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-section a:hover {
+    color: #f0a500;
+  }
+  
+  .social-icons a {
+    font-size: 20px;
+    margin-right: 15px;
+    color: #ccc;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #f0a500;
+  }
+  
+  .perfil-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: Arial, sans-serif;
+    color: white;
+    height: 60%;
+    text-align: center;
+    font-family: 'Verdana', sans-serif;
+  }
+  
+  .perfil-section h1 {
+    font-size: 28px;
+    margin-bottom: 60px;
+    font-family: 'High Speed', sans-serif;
+  }
+  
+  .perfil-container {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #000;
+    width: 100%;
+    max-width: 500px;
+    max-height: 500px;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .foto-perfil {
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f0a500;
+    display: block;
+    left: 29%;
+    top: 32%;
+  }
+  
+  .form-foto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .form-foto button {
+    background-color: #f0a500;
+    color: black;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Verdana', sans-serif;
+    transition: background-color 0.3s ease;
+    margin-left: 200px;
+    margin-top: 10px;
+  }
+  
+  .form-foto button:hover {
+    background-color: #ff8700;
+  }
+  
+  .form-foto input[type="file"] {
+    color: #f0a500;
+    background-color: #2e2e2e;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #f0a500;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    width: 200px;
+    max-width: 100%;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .dados-perfil {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .dados-perfil p {
+    margin: 6px 0;
+    margin-left: 200px;
+  }
+  input[type="file"] {
+    display: none;
+  }
+  
+  .custom-file-upload {
+    background-color: #f0a500;
+    color: black;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Verdana', sans-serif;
+    border: none;
+    display: flex;
+    transition: background-color 0.3s ease;
+    margin-left: 200px;
+  }
+  
+  .custom-file-upload:hover {
+    background-color: #ff8700;
+  }
+
+  .avatar-header {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .avatar-header:hover {
+    transform: scale(1.05);
+  }
+
+  .botao-sair {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .botao-sair:hover {
+    background-color: #c0392b;
+  }
+  
+  

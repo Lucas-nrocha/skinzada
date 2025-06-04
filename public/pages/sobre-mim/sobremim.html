@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/sobre-mim.css">
+</head>
+<body>
+    <div class="container">
+        <a href="../../index.html">
+            <img src="../../assets/icon/logo.png" class="logo-principal" alt="Logo da Skinzada">
+        </a>
+        <header>
+          <div class="conteudo">
+            <ul>
+              <li><a href="../../index.html">Home</a></li>  
+              <li><a href="../sobre-mim/sobremim.html">Sobre</a></li>
+              <li><a href="login.html">Login</a></li>
+            </ul>
+          </div>
+          <nav>
+          </nav>
+        </header>
+        <section class="sobre-mim">
+            <div class="caixa-sobre">
+              <h1 class="titulo-principal">Sobre Mim</h1>
+              <p>
+                Olá! Me chamo <strong>Lucas</strong>, sou estudante do primeiro semestre de Ciência da Computação na SPTECH e apaixonado por jogos, especificamente por counter-strike,
+                esse site é para os amantes de counter-strike que futuramente pode virar um site de metricas profissionais das skins de cs. 
+              </p>
+              <div class="imagem-legenda">
+                <img src="../../assets/imgs/henri.jpeg" alt="Lucas com um ex-profissional">
+                <p class="legenda">Esse sou eu em 2017 com um ex-profissional do jogo em um evento 🎮</p>
+              </div>
+              <p>
+                O <strong>Skinzada</strong> surgiu da minha vontade de unir o que eu gosto com o que estou aprendendo na faculdade. Sempre achei os inventários de jogos como CS muito estilosos, e pensei: "por que não criar um site que traga essa vibe interativa?"
+              </p>
+              <p>
+                A ideia principal do projeto é o monitoramento dos valores das skins de cs mas sendo amador, criando algo visualmente atrativo e divertido. No futuro, quem sabe, esse projeto pode evoluir para um catálogo de skins ou até uma plataforma para comparação de coleções.
+              </p>
+              <p>
+                Esse é o meu primeiro projeto sozinho e dei o meu melhor.
+              </p>
+
+            </div>
+          </section>
+        <section class="footer-section">
+            <footer class="footer">
+                <div class="footer-content">
+                    <div class="footer-section about">
+                        <h3>Skinzada</h3>
+                        <p>&copy; 2025 Skinzada. Todos os direitos reservados.</p>
+                    </div>
+        
+                    <div class="footer-section links">
+                        <h4>Links úteis</h4>
+                        <a href="pages/quiz/quizz.html">Quiz</a>
+                        <a href="pages/dashboard/dashboard.html">Dashboard</a>
+                        <a href="#sobre">Sobre</a>
+                    </div>
+        
+                    <div class="footer-section contact">
+                        <h4>Contato</h4>
+                        <p>Email: contato@skinzada.com</p>
+                        <p>Telefone: (11) 99999-9999</p>
+                    </div>
+                </div>
+            </footer>
+        </section>
+    </div>
+</body>
+</html>
+<script src="../../js/header.js"></script>
+<script>
+  function limparSessao() {
+      sessionStorage.clear();
+      window.location = "../cadastro/login.html";
+    }
+</script>
